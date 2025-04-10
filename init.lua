@@ -275,7 +275,12 @@ require('lazy').setup({
       },
     },
   },
-
+  -- start of custom plugins not from kickstarter
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+  },
   -- #region AI tools
   -- setting up parrot for querying LLMs and supermaven for autocomplete
   {
