@@ -32,6 +32,7 @@ External Requirements:
   - If you want to write Typescript, you need `npm`
   - If you want to write Golang, you will need `go`
   - etc.
+- [Ollama](https://ollama.com/download/linux) for parrot.nvim LLM support
 
 > [!NOTE]
 > See [Install Recipes](#Install-Recipes) for additional Windows and Linux specific notes
