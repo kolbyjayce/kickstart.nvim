@@ -276,55 +276,50 @@ require('lazy').setup({
     },
   },
   -- start of custom plugins not from kickstarter
-  {
-    'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    config = true
-  },
   -- #region AI tools
   -- setting up parrot for querying LLMs and supermaven for autocomplete
   {
-    "supermaven-inc/supermaven-nvim",
+    'supermaven-inc/supermaven-nvim',
     config = function()
-      require("supermaven-nvim").setup({})
+      require('supermaven-nvim').setup {}
     end,
   },
   {
-    "frankroeder/parrot.nvim",
+    'frankroeder/parrot.nvim',
     dependencies = { 'ibhagwan/fzf-lua', 'nvim-lua/plenary.nvim' },
     -- optionally include "folke/noice.nvim" or "rcarriga/nvim-notify" for beautiful notifications
     config = function()
-      require("parrot").setup {
+      require('parrot').setup {
         -- Providers must be explicitly added to make them available.
         providers = {
           anthropic = {
-            api_key = os.getenv "ANTHROPIC_API_KEY",
+            api_key = os.getenv 'ANTHROPIC_API_KEY',
           },
           gemini = {
-            api_key = os.getenv "GEMINI_API_KEY",
+            api_key = os.getenv 'GEMINI_API_KEY',
           },
           groq = {
-            api_key = os.getenv "GROQ_API_KEY",
+            api_key = os.getenv 'GROQ_API_KEY',
           },
           mistral = {
-            api_key = os.getenv "MISTRAL_API_KEY",
+            api_key = os.getenv 'MISTRAL_API_KEY',
           },
           pplx = {
-            api_key = os.getenv "PERPLEXITY_API_KEY",
+            api_key = os.getenv 'PERPLEXITY_API_KEY',
           },
           -- provide an empty list to make provider available (no API key required)
           ollama = {},
           openai = {
-            api_key = os.getenv "OPENAI_API_KEY",
+            api_key = os.getenv 'OPENAI_API_KEY',
           },
           github = {
-            api_key = os.getenv "GITHUB_TOKEN",
+            api_key = os.getenv 'GITHUB_TOKEN',
           },
           nvidia = {
-            api_key = os.getenv "NVIDIA_API_KEY",
+            api_key = os.getenv 'NVIDIA_API_KEY',
           },
           xai = {
-            api_key = os.getenv "XAI_API_KEY",
+            api_key = os.getenv 'XAI_API_KEY',
           },
         },
       }
@@ -928,20 +923,18 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
+    'catppuccin/nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       ---@diagnostic disable-next-line: missing-fields
-      require('tokyonight').setup {
-        styles = {
-          comments = { italic = false }, -- Disable italics in comments
-        },
+      require('catppuccin').setup {
+        flavour = 'mocha', -- latte, frappe, macchiato, mocha
       }
 
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'slate'
+      vim.cmd.colorscheme 'catppuccin'
     end,
   },
 
@@ -1020,12 +1013,12 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
